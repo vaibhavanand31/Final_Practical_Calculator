@@ -1,0 +1,45 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
+<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+<!--        <item name="colorAccent">@color/colorAccent</item>-->
+<!--        <item name="colorSecondary">@color/colorSecondary</item>-->
+        <item name="android:windowBackground">@color/colorPrimaryDark</item>
+
+        // customs items
+        <item name="android:textViewStyle">@style/textView</item>
+        <item name="android:button">@style/button</item>
+
+    </style>
+
+    // custom styles
+    <style name="textView">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">50sp</item>
+    </style>
+
+    <style name="button">
+        <item name="backgroundTint">@color/colorAccent</item>
+        <item name='android:textColor'>@color/colorPrimaryDark</item>
+        <item name='android:textSize'>18dp</item>
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:layout_margin">2dp</item>
+
+    </style>
+
+    <style name="operationButtonView" parent="@style/button">
+        <item name="backgroundTint">@color/colorSecondary</item>
+        <item name='android:textColor'>@color/colorPrimary</item>
+    </style>
+
+    <style name="linerLayout">
+        <item name="android:padding">1dp</item>
+    </style>
+
+    <style name="TextLinerLayout">
+        <item name="android:padding">5dp</item>
+    </style>
+
+</resources>
