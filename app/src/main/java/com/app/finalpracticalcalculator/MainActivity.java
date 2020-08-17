@@ -241,7 +241,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.clear_button:
                 clearLastChar(operationSelected);
-                break;
+                break; 
 
             case R.id.divide_button:
                 operation = "div";
