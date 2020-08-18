@@ -7,9 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Locale;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    NumberFormat numberFormat = NumberFormat.getInstance(new Locale("en", "US"));
 
     private TextView display;
     private Button one, two, three, four, five, six, seven, eight, nine, zero, doubleZero, decimal,divide, multiply, add, subtract, equal, clear, clearALl;
@@ -87,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void changeDisplay(String character, boolean operationSelected){
         if (!operationSelected){
-            if (num1.length() <= 9){
+            if (num1.length() < 9){
                 if (num1 == "0" || num1 == "00"){
                     if(character == "."){
                         num1 = num1 + character;
@@ -105,11 +109,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
 
                 }
-                display.setText(NumberFormat.getInstance().format(Float.parseFloat(num1)));
+                display.setText(num1);
             }
         }
         else{
-            if (num2.length() <= 9){
+            if (num2.length() < 9){
                 if (num2 == "0" || num2 == "00"){
                     if(character == "."){
                         num2 = num2 + character;
@@ -127,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
 
                 }
-                display.setText(NumberFormat.getInstance().format(Float.parseFloat(num2)));
+                display.setText(num2);
             }
         }
     }
@@ -138,37 +142,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (num2.length() == 0){
                 num2 = "0";
             }
-            display.setText(NumberFormat.getInstance().format(Float.parseFloat(num2)));
+            display.setText(num2);
         }
         else{
             num1 = num1.substring(0, num1.length() -1);
             if (num1.length() == 0){
                 num1 = "0";
             }
-            display.setText(NumberFormat.getInstance().format(Float.parseFloat(num1)));
+            display.setText(num1);
         }
     }
 
     public void calculate(){
 
-            float response = 0;
+            double response = 0;
             switch (operation){
                 case "div":
-                    response = Float.parseFloat(num1) / Float.parseFloat(num2);
+                    response = Double.parseDouble(num1) / Double.parseDouble(num2);
                     break;
                 case "mul":
-                    response = Float.parseFloat(num1) * Float.parseFloat(num2);
+                    response = Double.parseDouble(num1) * Double.parseDouble(num2);
                     break;
                 case "add":
-                    response = Float.parseFloat(num1) + Float.parseFloat(num2);
+                    response = Double.parseDouble(num1) + Double.parseDouble(num2);
                     break;
                 case "sub":
-                    response = Float.parseFloat(num1) - Float.parseFloat(num2);
+                    response = Double.parseDouble(num1) - Double.parseDouble(num2);
                     break;
                 default:
                     response = 0;
             }
-            display.setText(NumberFormat.getInstance().format(response));
+            display.setText(numberFormat.format(response));
             clearAll();
 
     }
@@ -236,7 +240,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.clear_all_button:
                 clearAll();
-                display.setText(NumberFormat.getInstance().format(Float.parseFloat(num1)));
+                display.setText(num1);
                 break;
 
             case R.id.clear_button:
